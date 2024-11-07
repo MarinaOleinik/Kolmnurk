@@ -11,7 +11,6 @@ namespace Kolmnurk
         public double A = 0;
         public double B = 0;
         public double C = 0;
-
         public double H = 0;//kõrgus
 
         public Triangle() { }
@@ -33,15 +32,6 @@ namespace Kolmnurk
             A = a;
         }
 
-        public Triangle(double a, double b, double c, double h, double getSetA, double getSetB, double getSetC, double getSetH, double getSetS) : this(a, b, c)
-        {
-            H = h;
-            GetSetA = getSetA;
-            GetSetB = getSetB;
-            GetSetC = getSetC;
-            GetSetH = getSetH;
-            GetSetS = getSetS;
-        }
 
         public bool ExistTriangle
         {
@@ -77,13 +67,7 @@ namespace Kolmnurk
             get { return H; }
             set { H = value; }
         }
-        public double GetSetS
-        {
-            get
-            { return S; }
-            set
-            { S = value; }
-        }
+        
         public string TriangleType
         {
             get
@@ -110,7 +94,7 @@ namespace Kolmnurk
 
             }
         }
-        public double Perimeter()
+        public override double Perimeter()
         {
             return A + B + C;
         }
