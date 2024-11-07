@@ -6,25 +6,43 @@ using System.Threading.Tasks;
 
 namespace Kolmnurk
 {
-    public class Triangle
+    public class Triangle: Figure
     {
-        public double A;
-        public double B;
-        public double C;
-        public double S;//pindala
-        public double H;//kõrgus
+        public double A = 0;
+        public double B = 0;
+        public double C = 0;
+
+        public double H = 0;//kõrgus
+
+        public Triangle() { }
+        public Triangle(double a) //võrgkülgne kolmnurk
+        {
+            A = a;
+            B = a;
+            C = a;
+        }
         public Triangle(double a, double b, double c)
         {
             A = a;
             B = b;
             C = c;
         }
-        public Triangle(double s,double a)
+        public Triangle(double ha, double a)
         {
-            S = s;
+            H = ha;
             A = a;
         }
-        public Triangle() { }
+
+        public Triangle(double a, double b, double c, double h, double getSetA, double getSetB, double getSetC, double getSetH, double getSetS) : this(a, b, c)
+        {
+            H = h;
+            GetSetA = getSetA;
+            GetSetB = getSetB;
+            GetSetC = getSetC;
+            GetSetH = getSetH;
+            GetSetS = getSetS;
+        }
+
         public bool ExistTriangle
         {
             get
@@ -33,9 +51,9 @@ namespace Kolmnurk
                 {
                     return true;
                 }
-                else 
-                { 
-                    return false; 
+                else
+                {
+                    return false;
                 }
             }
         }
@@ -54,11 +72,17 @@ namespace Kolmnurk
             get { return C; }
             set { C = value; }
         }
+        public double GetSetH
+        {
+            get { return H; }
+            set { H = value; }
+        }
         public double GetSetS
-        { get 
-            { return S; } 
-          set 
-            {S = value; } 
+        {
+            get
+            { return S; }
+            set
+            { S = value; }
         }
         public string TriangleType
         {
@@ -66,11 +90,11 @@ namespace Kolmnurk
             {
                 if (ExistTriangle)
                 {
-                    if (A==B && B==C && A==C)
+                    if (A == B && B == C && A == C)
                     {
                         return "võrdkülgne";
                     }
-                    else if (A==B || A==C || B==C)
+                    else if (A == B || A == C || B == C)
                     {
                         return "võrdhaarne";
                     }
@@ -83,27 +107,32 @@ namespace Kolmnurk
                 {
                     return "tundmatu tüüp";
                 }
-                
+
             }
         }
         public double Perimeter()
         {
-            return A+B+C;
+            return A + B + C;
         }
         public double Perimeter1_2()
         {
             return (A + B + C) / 2;
         }
-        public double Area()
+        double S;
+        public override double Area()
         {
-            double s=0;
-            if (ExistTriangle) 
+            if (ExistTriangle)
             {
                 double p;
-                p=(A+B+C)/2;
-                s=Math.Sqrt(p*(p-A)*(p-B)*(p-C));
+                p = (A + B + C) / 2;
+                S = Math.Sqrt(p * (p - A) * (p - B) * (p - C));
             }
-            return s;
+            else
+            {
+                S = H * A / 2;
+            }
+            return S;
+            base.Area();
         }
         public string OutputA()
         {
@@ -117,6 +146,12 @@ namespace Kolmnurk
         {
             return C.ToString();
         }
+        public string OutputH()
+        {
+            return H.ToString();
+        }
+
+       
     }
 
 

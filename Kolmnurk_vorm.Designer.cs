@@ -39,6 +39,8 @@
             this.A_txt = new System.Windows.Forms.TextBox();
             this.B_txt = new System.Windows.Forms.TextBox();
             this.C_txt = new System.Windows.Forms.TextBox();
+            this.H_txt = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // start_btn
@@ -135,12 +137,34 @@
             this.C_txt.Size = new System.Drawing.Size(92, 38);
             this.C_txt.TabIndex = 7;
             // 
+            // H_txt
+            // 
+            this.H_txt.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.H_txt.Location = new System.Drawing.Point(143, 173);
+            this.H_txt.Name = "H_txt";
+            this.H_txt.Size = new System.Drawing.Size(92, 38);
+            this.H_txt.TabIndex = 9;
+            this.H_txt.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.label1.Location = new System.Drawing.Point(24, 173);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(110, 33);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Kõrgus:";
+            // 
             // Kolmnurk_vorm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(784, 361);
+            this.Controls.Add(this.H_txt);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.C_txt);
             this.Controls.Add(this.B_txt);
             this.Controls.Add(this.A_txt);
@@ -171,6 +195,8 @@
         private System.Windows.Forms.TextBox A_txt;
         private System.Windows.Forms.TextBox B_txt;
         private System.Windows.Forms.TextBox C_txt;
+        private System.Windows.Forms.TextBox H_txt;
+        private System.Windows.Forms.Label label1;
     }
 }
 
